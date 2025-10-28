@@ -1,19 +1,46 @@
 {
   "name": "narcological-service-landing",
-  "version": "1.0.0",
-  "type": "module",
-  "description": "Marketing landing page for narcological service with forms, trust elements, and UX features",
-  "main": "script.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "python3 -m http.server 8000",
-    "preview": "python3 -m http.server 8000"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
-  "keywords": [
-    "landing-page",
-    "forms",
-    "validation",
-    "marketing"
-  ],
-  "author": "",
-  "license": "MIT"
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "framer-motion": "^12.23.24",
+    "next": "16.0.1",
+    "react": "19.2.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "19.2.0",
+    "react-input-mask": "^2.0.4",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{js,jsx,ts,tsx,json,md,mdx,css,scss}": [
+      "prettier --write"
+    ]
+  }
 }
