@@ -6,7 +6,7 @@ export function initStickyButton() {
     button.className = 'sticky-call-btn';
     button.setAttribute('role', 'button');
     button.setAttribute('aria-label', 'Позвонить нам');
-    button.textContent = 'Позвонить';
+    button.innerHTML = '<span class="sticky-btn-icon">🚑</span><span class="sticky-btn-text">Позвонить</span>';
 
     button.addEventListener('click', () => {
         trackPhoneClick('+78005001234');

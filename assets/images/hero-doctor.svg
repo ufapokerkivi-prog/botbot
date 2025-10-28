@@ -1,0 +1,54 @@
+<svg width="480" height="560" viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroDoctorTitle heroDoctorDesc">
+  <title id="heroDoctorTitle">Врач-нарколог готовится к выезду</title>
+  <desc id="heroDoctorDesc">Иллюстрация врача в медицинском халате с портативной капельницей.</desc>
+  <defs>
+    <linearGradient id="bgGradient" x1="80" y1="40" x2="420" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14B8A6" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0.65" />
+    </linearGradient>
+    <linearGradient id="coatGradient" x1="120" y1="140" x2="360" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E0F2F1" />
+      <stop offset="1" stop-color="#CFFAFE" />
+    </linearGradient>
+    <linearGradient id="shadowGradient" x1="240" y1="430" x2="240" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F172A" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <rect x="20" y="20" width="440" height="520" rx="48" fill="#0F172A" opacity="0.18" />
+  <rect x="40" y="40" width="400" height="480" rx="44" fill="url(#bgGradient)" />
+
+  <ellipse cx="240" cy="500" rx="130" ry="34" fill="url(#shadowGradient)" />
+
+  <path d="M180 258C180 214 210 182 240 182C270 182 300 214 300 258V430H180V258Z" fill="url(#coatGradient)" />
+
+  <path d="M200 276L280 276" stroke="#0F172A" stroke-width="6" stroke-linecap="round" opacity="0.35" />
+  <path d="M192 320L288 320" stroke="#0EA5E9" stroke-width="8" stroke-linecap="round" opacity="0.45" />
+  <path d="M220 360C220 343 230 330 240 330C250 330 260 343 260 360" stroke="#0F172A" stroke-width="6" stroke-linecap="round" opacity="0.35" />
+
+  <rect x="220" y="252" width="40" height="20" rx="8" fill="#0EA5E9" opacity="0.8" />
+  <rect x="232" y="252" width="16" height="8" rx="4" fill="#F8FAFC" />
+
+  <circle cx="240" cy="160" r="60" fill="#F8FAFC" />
+  <circle cx="240" cy="150" r="58" fill="#F1F5F9" />
+  <path d="M210 138C214 122 226 110 240 110C254 110 266 122 270 138" stroke="#0F172A" stroke-width="6" stroke-linecap="round" opacity="0.35" />
+  <circle cx="240" cy="174" r="50" fill="#FFE4D6" />
+  <circle cx="220" cy="166" r="6" fill="#0F172A" opacity="0.6" />
+  <circle cx="260" cy="166" r="6" fill="#0F172A" opacity="0.6" />
+  <path d="M224 190C230 198 238 202 248 202" stroke="#0F172A" stroke-width="5" stroke-linecap="round" opacity="0.45" />
+
+  <path d="M168 220C152 246 152 274 168 300C184 326 210 340 240 340C270 340 296 326 312 300C328 274 328 246 312 220" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round" opacity="0.3" />
+
+  <path d="M320 210C340 206 356 226 350 244C344 262 318 266 310 248" stroke="#38BDF8" stroke-width="10" stroke-linecap="round" opacity="0.4" />
+  <path d="M160 210C140 206 124 226 130 244C136 262 162 266 170 248" stroke="#38BDF8" stroke-width="10" stroke-linecap="round" opacity="0.4" />
+
+  <path d="M156 440C156 410 186 386 222 386H258C294 386 324 410 324 440V470H156V440Z" fill="#0F172A" opacity="0.16" />
+  <path d="M156 432C156 404 184 380 218 380H262C296 380 324 404 324 432V456H156V432Z" fill="#0EA5E9" opacity="0.25" />
+
+  <path d="M336 292C336 280 344 270 356 270C368 270 376 280 376 292V408" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round" opacity="0.5" />
+  <rect x="330" y="402" width="52" height="80" rx="18" fill="#0EA5E9" opacity="0.2" />
+  <rect x="344" y="412" width="24" height="40" rx="8" fill="#F8FAFC" opacity="0.8" />
+
+  <path d="M188 248C188 220 212 198 240 198C268 198 292 220 292 248" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round" opacity="0.25" />
+</svg>
