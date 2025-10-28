@@ -7,6 +7,10 @@ import { initStickyButton } from './js/sticky-button.js';
 import { initYandexMap } from './js/yandex-map.js';
 import { initScrollAnimations } from './js/scroll-animations.js';
 import { mockApiRequest } from './js/mock-api.js';
+import { initHelpModal } from './js/modal.js';
+import { initReviewsSlider } from './js/reviews-slider.js';
+
+let helpModalControls = null;
 
 document.addEventListener('DOMContentLoaded', function() {
     const root = document.getElementById('root');
@@ -133,6 +137,187 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </section>
             
+            <section id="how-we-help" class="how-we-help-section py-xl">
+                <div class="container">
+                    <h2 class="text-center mb-xl">Как мы помогаем</h2>
+                    <div class="help-cards">
+                        <div class="help-card fade-up" data-delay="0">
+                            <div class="help-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+                                    <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg>
+                            </div>
+                            <h3>Быстрый выезд</h3>
+                            <p>Врач приедет к вам в течение 30-60 минут в любое время суток</p>
+                        </div>
+                        <div class="help-card fade-up" data-delay="100">
+                            <div class="help-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <h3>Капельницы</h3>
+                            <p>Профессиональная детоксикация и выведение из запоя на дому</p>
+                        </div>
+                        <div class="help-card fade-up" data-delay="200">
+                            <div class="help-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <h3>Качественные лекарства</h3>
+                            <p>Используем только сертифицированные препараты</p>
+                        </div>
+                        <div class="help-card fade-up" data-delay="300">
+                            <div class="help-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h3>24/7 Поддержка</h3>
+                            <p>Круглосуточная консультация и помощь в любое время</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-lg">
+                        <button class="btn btn-accent btn-lg" data-open-modal="help">Получить помощь</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reviews" class="reviews-section py-xl bg-secondary">
+                <div class="container">
+                    <h2 class="text-center mb-xl">Отзывы наших пациентов</h2>
+                    <div class="city-filters" role="tablist" aria-label="Фильтр по городам">
+                        <button class="city-filter active" role="tab" aria-selected="true" data-city="Все">Все города</button>
+                        <button class="city-filter" role="tab" aria-selected="false" data-city="Москва">Москва</button>
+                        <button class="city-filter" role="tab" aria-selected="false" data-city="СПБ">Санкт-Петербург</button>
+                        <button class="city-filter" role="tab" aria-selected="false" data-city="Казань">Казань</button>
+                    </div>
+                    <div class="reviews-slider" aria-label="Отзывы пациентов">
+                        <div class="reviews-slides"></div>
+                        <button class="slider-nav slider-prev" aria-label="Предыдущий отзыв">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="slider-nav slider-next" aria-label="Следующий отзыв">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="slider-dots" role="tablist" aria-label="Выбор отзыва"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="trust" class="trust-section py-xl">
+                <div class="container">
+                    <h2 class="text-center mb-xl">Почему нам доверяют</h2>
+                    <div class="trust-grid">
+                        <div class="trust-card fade-up" data-delay="0">
+                            <div class="trust-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <h3>30 минут</h3>
+                            <p>Среднее время приезда врача</p>
+                        </div>
+                        <div class="trust-card fade-up" data-delay="100">
+                            <div class="trust-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3>Анонимность</h3>
+                            <p>100% конфиденциальность</p>
+                        </div>
+                        <div class="trust-card fade-up" data-delay="200">
+                            <div class="trust-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <h3>Сертификаты</h3>
+                            <p>Лицензированные специалисты</p>
+                        </div>
+                        <div class="trust-card fade-up" data-delay="300">
+                            <div class="trust-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <h3>Доступные цены</h3>
+                            <p>Прозрачное ценообразование</p>
+                        </div>
+                        <div class="trust-card fade-up" data-delay="400">
+                            <div class="trust-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <h3>Опыт врачей</h3>
+                            <p>Более 10 лет практики</p>
+                        </div>
+                        <div class="trust-card fade-up" data-delay="500">
+                            <div class="trust-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <h3>Поддержка 24/7</h3>
+                            <p>Всегда на связи</p>
+                        </div>
+                    </div>
+                    <div class="trust-credentials">
+                        <div class="credential-item fade-up" data-delay="0">
+                            <div class="credential-badge">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="20" width="80" height="60" rx="5" fill="none" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M30 40 L45 55 L70 30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <text x="50" y="75" font-size="8" text-anchor="middle" fill="currentColor">ЛО-77-01-123456</text>
+                                </svg>
+                            </div>
+                            <p>Лицензия Минздрава</p>
+                        </div>
+                        <div class="credential-item fade-up" data-delay="150">
+                            <div class="credential-badge qr-code">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="10" width="35" height="35" fill="currentColor"/>
+                                    <rect x="15" y="15" width="25" height="25" fill="none" stroke="#fff" stroke-width="2"/>
+                                    <rect x="20" y="20" width="15" height="15" fill="#fff"/>
+                                    <rect x="55" y="10" width="35" height="35" fill="currentColor"/>
+                                    <rect x="60" y="15" width="25" height="25" fill="none" stroke="#fff" stroke-width="2"/>
+                                    <rect x="65" y="20" width="15" height="15" fill="#fff"/>
+                                    <rect x="10" y="55" width="35" height="35" fill="currentColor"/>
+                                    <rect x="15" y="60" width="25" height="25" fill="none" stroke="#fff" stroke-width="2"/>
+                                    <rect x="20" y="65" width="15" height="15" fill="#fff"/>
+                                    <rect x="55" y="55" width="15" height="15" fill="currentColor"/>
+                                    <rect x="75" y="55" width="15" height="15" fill="currentColor"/>
+                                    <rect x="55" y="75" width="15" height="15" fill="currentColor"/>
+                                    <rect x="75" y="75" width="15" height="15" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <p>QR-код проверки</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <section id="contacts" class="contacts-section py-xl">
                 <div class="container">
                     <h2 class="text-center mb-xl">Контакты</h2>
@@ -209,6 +394,34 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </footer>
         
+        <div id="helpModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="helpModalTitle">
+            <div class="modal-container">
+                <button type="button" class="modal-close" data-close-modal aria-label="Закрыть форму">
+                    <span aria-hidden="true">✕</span>
+                </button>
+                <h2 id="helpModalTitle">Получите план помощи</h2>
+                <p class="modal-subtitle">Оставьте контактные данные и кратко опишите ситуацию. Мы перезвоним в течение 5 минут.</p>
+                <form id="helpModalForm" class="modal-form" novalidate>
+                    <div class="form-group">
+                        <label for="helpName">Ваше имя *</label>
+                        <input type="text" id="helpName" name="name" class="form-input" placeholder="Иван" required data-autofocus>
+                        <span class="form-error" data-error-for="name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="helpPhone">Телефон *</label>
+                        <input type="tel" id="helpPhone" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                        <span class="form-error" data-error-for="phone"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="helpComment">Комментарий</label>
+                        <textarea id="helpComment" name="comment" class="form-textarea" rows="4" placeholder="Опишите ситуацию или задайте вопрос"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+                    <p class="form-disclaimer text-small">Мы свяжемся с вами и дадим подробную консультацию. Ваши данные защищены.</p>
+                </form>
+            </div>
+        </div>
+        
         <div id="toast" class="toast" role="alert" aria-live="polite"></div>
         <div id="popup" class="popup-overlay" style="display: none;"></div>
     `;
@@ -239,6 +452,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initInactivityTimer();
     initPopup();
     initStickyButton();
+    helpModalControls = initHelpModal();
+    initReviewsSlider({ autoplay: !shouldReduceMotion });
+
+    const helpModalForm = document.getElementById('helpModalForm');
+    if (helpModalForm) {
+        initFormValidation(helpModalForm, handleHelpModalSubmit);
+    }
 
     const messengerButtons = document.querySelectorAll('.btn-messenger');
     messengerButtons.forEach(button => {
@@ -257,6 +477,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Landing page loaded successfully');
 });
+
+async function handleHelpModalSubmit(formData) {
+    const submitButton = document.querySelector('#helpModalForm button[type="submit"]');
+    if (!submitButton) {
+        console.error('Submit button not found');
+        return;
+    }
+
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Отправка...';
+
+    trackEvent('form_submit', {
+        form_name: 'help_modal_form',
+        ...formData
+    });
+
+    try {
+        let response;
+        try {
+            response = await fetch('/api/help-request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                response = await mockApiRequest('/api/help-request', formData);
+            }
+        } catch (fetchError) {
+            response = await mockApiRequest('/api/help-request', formData);
+        }
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        await response.json();
+
+        showToast('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+        
+        const form = document.getElementById('helpModalForm');
+        if (form) {
+            form.reset();
+            form.dispatchEvent(new Event('reset'));
+        }
+
+        trackEvent('form_success', {
+            form_name: 'help_modal_form'
+        });
+
+        setTimeout(() => {
+            if (helpModalControls && helpModalControls.close) {
+                helpModalControls.close();
+            }
+        }, 500);
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showToast('Произошла ошибка при отправке. Пожалуйста, попробуйте позвонить нам.', 'error');
+
+        trackEvent('form_error', {
+            form_name: 'help_modal_form',
+            error: error.message
+        });
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    }
+}
 
 async function handleCTASubmit(formData) {
     const submitButton = document.getElementById('ctaSubmit');
