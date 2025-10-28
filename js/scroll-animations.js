@@ -51,4 +51,24 @@ export function initScrollAnimations() {
         
         observer.observe(anonymitySection);
     }
+    
+    const fadeUpElements = document.querySelectorAll('.fade-up');
+    fadeUpElements.forEach((element) => {
+        const delay = parseInt(element.dataset.delay) || 0;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    observer.unobserve(element);
+                    setTimeout(() => {
+                        element.classList.add('is-visible');
+                    }, delay);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+        
+        observer.observe(element);
+    });
 }
