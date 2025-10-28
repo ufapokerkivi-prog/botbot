@@ -1,0 +1,19 @@
+{
+  "name": "narcological-service-landing",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Marketing landing page for narcological service with forms, trust elements, and UX features",
+  "main": "script.js",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "preview": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "landing-page",
+    "forms",
+    "validation",
+    "marketing"
+  ],
+  "author": "",
+  "license": "MIT"
+}
