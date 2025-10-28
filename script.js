@@ -9,6 +9,8 @@ import { initScrollAnimations } from './js/scroll-animations.js';
 import { mockApiRequest } from './js/mock-api.js';
 import { initHelpModal } from './js/modal.js';
 import { initReviewsSlider } from './js/reviews-slider.js';
+import { initServicesCarousel } from './js/services-carousel.js';
+import { initAlcoholStatsCountup } from './js/alcohol-stats.js';
 
 let helpModalControls = null;
 
@@ -30,10 +32,159 @@ document.addEventListener('DOMContentLoaded', function() {
         </header>
         
         <main class="main">
-            <section class="hero-section py-xl">
+            <section class="hero-section">
+                <div class="container hero-container">
+                    <div class="hero-content">
+                        <h1>Профессиональная наркологическая помощь 24/7</h1>
+                        <p class="hero-subtitle">Анонимно. Конфиденциально. Быстро. Выезд на дом за 30 минут.</p>
+                        
+                        <div class="hero-trust-badges">
+                            <div class="trust-badge">
+                                <span class="trust-badge-icon">✓</span>
+                                <span>Лицензия Минздрава</span>
+                            </div>
+                            <div class="trust-badge">
+                                <span class="trust-badge-icon">✓</span>
+                                <span>Опыт более 10 лет</span>
+                            </div>
+                            <div class="trust-badge">
+                                <span class="trust-badge-icon">✓</span>
+                                <span>100% анонимность</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-cta-buttons">
+                            <a href="tel:+78005001234" class="btn btn-hero-primary" aria-label="Позвонить прямо сейчас">
+                                Позвонить прямо сейчас
+                            </a>
+                            <a href="#cta-form" class="btn btn-hero-secondary" aria-label="Оставить заявку">
+                                Оставить заявку
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image-wrapper">
+                        <div class="hero-doctor-image">
+                            <img src="/assets/images/hero-doctor.svg" alt="Профессиональный врач-нарколог с медицинским оборудованием" class="hero-doctor-svg" loading="eager" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="services" class="services-section py-xl">
                 <div class="container">
-                    <h1>Профессиональная помощь 24/7</h1>
-                    <p class="hero-subtitle">Анонимно. Конфиденциально. Быстро.</p>
+                    <h2 class="text-center mb-xl">Наши услуги</h2>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">💊</div>
+                            <h3>Вывод из запоя</h3>
+                            <p class="service-description">Профессиональная детоксикация организма с выездом на дом. Капельница, медикаментозная поддержка.</p>
+                            <div class="service-price">
+                                от 4 500 ₽
+                                <div class="service-price-label">Выезд врача</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">🏥</div>
+                            <h3>Лечение похмелья</h3>
+                            <p class="service-description">Быстрое снятие симптомов похмельного синдрома. Восстановление организма за 1-2 часа.</p>
+                            <div class="service-price">
+                                от 3 500 ₽
+                                <div class="service-price-label">Капельница на дому</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">🛡️</div>
+                            <h3>Кодирование</h3>
+                            <p class="service-description">Современные методы кодирования от алкоголизма. Медикаментозное и психотерапевтическое воздействие.</p>
+                            <div class="service-price">
+                                от 5 500 ₽
+                                <div class="service-price-label">Консультация + процедура</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="services-swiper swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <div class="service-icon">💊</div>
+                                    <h3>Вывод из запоя</h3>
+                                    <p class="service-description">Профессиональная детоксикация организма с выездом на дом. Капельница, медикаментозная поддержка.</p>
+                                    <div class="service-price">
+                                        от 4 500 ₽
+                                        <div class="service-price-label">Выезд врача</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <div class="service-icon">🏥</div>
+                                    <h3>Лечение похмелья</h3>
+                                    <p class="service-description">Быстрое снятие симптомов похмельного синдрома. Восстановление организма за 1-2 часа.</p>
+                                    <div class="service-price">
+                                        от 3 500 ₽
+                                        <div class="service-price-label">Капельница на дому</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="service-card">
+                                    <div class="service-icon">🛡️</div>
+                                    <h3>Кодирование</h3>
+                                    <p class="service-description">Современные методы кодирования от алкоголизма. Медикаментозное и психотерапевтическое воздействие.</p>
+                                    <div class="service-price">
+                                        от 5 500 ₽
+                                        <div class="service-price-label">Консультация + процедура</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="services-pagination swiper-pagination"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="alcohol-danger-section py-xl" data-alcohol-danger>
+                <div class="alcohol-danger-overlay"></div>
+                <div class="container alcohol-danger-content">
+                    <div class="alcohol-danger-header">
+                        <span class="section-eyebrow section-eyebrow--light">Почему важно действовать сегодня</span>
+                        <h2>Алкоголь разрушает организм быстрее, чем кажется</h2>
+                        <p>Практика показывает: чем раньше начинается лечение, тем меньше последствий для здоровья и психики. Наши врачи помогают остановить разрушительные процессы ещё до госпитализации.</p>
+                    </div>
+                    
+                    <div class="alcohol-stats-grid">
+                        <div class="alcohol-stat-card">
+                            <div class="stat-number" data-countup-target="68" data-countup-suffix="%">0</div>
+                            <div class="stat-label">пациентов сталкиваются с осложнениями печени уже через 3 года злоупотребления</div>
+                        </div>
+                        
+                        <div class="alcohol-stat-card">
+                            <div class="stat-number" data-countup-target="4" data-countup-suffix=" из 5">0</div>
+                            <div class="stat-label">возвращаются в запой без профессиональной поддержки</div>
+                        </div>
+                        
+                        <div class="alcohol-stat-card">
+                            <div class="stat-number" data-countup-target="2300" data-countup-suffix="+">0</div>
+                            <div class="stat-label">кризисов сняла наша выездная служба за прошлый год</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#cta-form" class="btn btn-accent alcohol-danger-cta">Получить план детоксикации</a>
+                    
+                    <div class="alcohol-video-container" data-video-src="https://www.youtube.com/embed/4-5MQf-0X6s" data-video-title="Как алкоголь влияет на организм">
+                        <button type="button" class="alcohol-video-placeholder" aria-label="Смотреть видео о последствиях алкоголя">
+                            <span class="play-icon" aria-hidden="true">▶</span>
+                            <span class="play-text">Смотреть видео с доктором</span>
+                        </button>
+                        <p class="alcohol-video-note">Видео откроется во встроенном плеере с субтитрами.</p>
+                    </div>
                 </div>
             </section>
             
@@ -454,6 +605,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initStickyButton();
     helpModalControls = initHelpModal();
     initReviewsSlider({ autoplay: !shouldReduceMotion });
+    
+    initServicesCarousel();
+    initAlcoholStatsCountup({ reduceMotion: shouldReduceMotion });
+    initHeroMotion({ reduceMotion: shouldReduceMotion });
+    initAlcoholVideo();
 
     const helpModalForm = document.getElementById('helpModalForm');
     if (helpModalForm) {
@@ -670,3 +826,132 @@ function showToast(messageOrOptions, type = 'info') {
 }
 
 window.showToast = showToast;
+
+async function initHeroMotion({ reduceMotion } = {}) {
+    const hero = document.querySelector('.hero-section');
+    if (!hero) {
+        return;
+    }
+
+    if (reduceMotion) {
+        hero.classList.add('hero-ready');
+        return;
+    }
+
+    try {
+        const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+            import('https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js'),
+            import('https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger.min.js')
+        ]);
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const title = hero.querySelector('h1');
+        const subtitle = hero.querySelector('.hero-subtitle');
+        const badges = hero.querySelectorAll('.hero-trust-badges .trust-badge');
+        const buttons = hero.querySelectorAll('.hero-cta-buttons .btn');
+        const imageWrapper = hero.querySelector('.hero-image-wrapper');
+
+        const timeline = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+        if (title) {
+            timeline.from(title, { opacity: 0, y: 60, duration: 1 });
+        }
+        if (subtitle) {
+            timeline.from(subtitle, { opacity: 0, y: 40, duration: 0.8 }, '-=0.6');
+        }
+        if (badges.length) {
+            timeline.from(badges, {
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                stagger: 0.12
+            }, '-=0.4');
+        }
+        if (buttons.length) {
+            timeline.from(buttons, {
+                opacity: 0,
+                y: 20,
+                duration: 0.5,
+                stagger: 0.1
+            }, '-=0.5');
+        }
+        if (imageWrapper) {
+            timeline.from(imageWrapper, {
+                opacity: 0,
+                y: 80,
+                duration: 1.1,
+                ease: 'power3.out'
+            }, '-=0.8');
+
+            gsap.to(imageWrapper, {
+                yPercent: -12,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: hero,
+                    start: 'top center',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+        }
+    } catch (error) {
+        console.warn('GSAP unavailable, skipping hero animation', error);
+        hero.classList.add('hero-ready');
+    }
+}
+
+function initAlcoholVideo() {
+    const container = document.querySelector('.alcohol-video-container');
+    if (!container) {
+        return;
+    }
+
+    const placeholder = container.querySelector('.alcohol-video-placeholder');
+    const note = container.querySelector('.alcohol-video-note');
+    const src = container.dataset.videoSrc;
+    const title = container.dataset.videoTitle || 'Видео о последствиях алкоголя';
+
+    if (!placeholder || !src) {
+        return;
+    }
+
+    const loadVideo = (autoplay = false) => {
+        if (container.querySelector('iframe')) {
+            return;
+        }
+
+        const iframe = document.createElement('iframe');
+        const separator = src.includes('?') ? '&' : '?';
+        iframe.src = autoplay ? `${src}${separator}autoplay=1` : src;
+        iframe.loading = 'lazy';
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        iframe.className = 'alcohol-video-frame';
+
+        placeholder.hidden = true;
+        if (note) {
+            container.insertBefore(iframe, note);
+        } else {
+            container.appendChild(iframe);
+        }
+    };
+
+    placeholder.addEventListener('click', () => loadVideo(true), { once: true });
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    loadVideo(false);
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(container);
+    } else {
+        loadVideo(false);
+    }
+}
