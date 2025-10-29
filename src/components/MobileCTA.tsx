@@ -24,7 +24,7 @@ export default function MobileCTA() {
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
       <a
         href="tel:+70000000000"
-        className="flex w-full items-center justify-center bg-primary px-6 py-4 font-display text-base font-semibold text-white shadow-medium transition-transform hover:scale-[1.02] active:scale-[0.98]"
+        className="animate-pulse-soft flex w-full items-center justify-center bg-primary px-6 py-4 font-display text-base font-semibold text-white shadow-primary-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
       >
         <svg
           className="mr-2 h-5 w-5"
