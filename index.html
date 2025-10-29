@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вызов нарколога на дом — круглосуточно и анонимно</title>
+  <meta name="description" content="Частная наркологическая служба. Вывод из запоя, снятие похмелья, кодирование. Выезд за 30 минут, анонимно, 24/7" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sticky Mobile Button -->
+  <a href="tel:88000000000" class="sticky-btn" id="stickyBtn">🚑 Вызвать врача</a>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <h1 class="hero-title fade-in">ВЫЗОВ НАРКОЛОГА НА ДОМ ЗА 30 МИНУТ — КРУГЛОСУТОЧНО И АНОНИМНО</h1>
+      <p class="hero-subtitle fade-in">Вывод из запоя, снятие похмелья и кодирование. Частная скорая помощь 24/7</p>
+      <div class="hero-buttons fade-in">
+        <button class="btn btn-primary pulse" onclick="openModal()">Вызвать врача сейчас</button>
+        <button class="btn btn-secondary" onclick="openModal()">Получить консультацию бесплатно</button>
+      </div>
+      <p class="hero-note">📞 Звонок бесплатный. Врач перезвонит за 1 минуту.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card slide-up">
+          <div class="service-icon">💉</div>
+          <h3>Вывод из запоя</h3>
+          <p>Капельница, детоксикация, восстановление организма. Приезд врача за 30 минут.</p>
+          <div class="service-price">от 2,900 ₽</div>
+        </div>
+        <div class="service-card slide-up">
+          <div class="service-icon">💊</div>
+          <h3>Снятие похмелья</h3>
+          <p>Легкое восстановление состояния, нормализация давления, сна, аппетита.</p>
+          <div class="service-price">от 2,000 ₽</div>
+        </div>
+        <div class="service-card slide-up">
+          <div class="service-icon">🔒</div>
+          <h3>Кодирование</h3>
+          <p>Анонимное кодирование на дому. Гипноз, медикаментозное или лазерное.</p>
+          <div class="service-price">от 4,900 ₽</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Danger Section -->
+  <section class="danger">
+    <div class="container">
+      <div class="danger-stat"><span class="count-up" data-target="200">0</span>+</div>
+      <p class="danger-text">Каждый день от последствий алкоголя умирает более 200 человек.<br />Зависимость разрушает не только тело, но и жизнь близких.<br /><strong>Не ждите, пока станет поздно.</strong></p>
+    </div>
+  </section>
+
+  <!-- How We Help Section -->
+  <section class="help">
+    <div class="container">
+      <h2>Выход есть. Мы восстанавливаем здоровье и трезвость за 1 день.</h2>
+      <div class="help-grid">
+        <div class="help-item">🚑 Быстрый выезд врача в любое время суток</div>
+        <div class="help-item">🤫 Без постановки на учёт — полная анонимность</div>
+        <div class="help-item">💊 Используем только сертифицированные препараты</div>
+        <div class="help-item">👨‍⚕️ Работаем по лицензии, врачи со стажем 10+ лет</div>
+      </div>
+      <button class="btn btn-primary" onclick="openModal()">Вызвать нарколога сейчас</button>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews">
+    <div class="container">
+      <h2>Отзывы наших пациентов</h2>
+      <div class="review-filters">
+        <button class="filter-btn active" data-city="all">Все города</button>
+        <button class="filter-btn" data-city="Москва">Москва</button>
+        <button class="filter-btn" data-city="СПБ">СПБ</button>
+        <button class="filter-btn" data-city="Казань">Казань</button>
+      </div>
+      <div class="reviews-slider" id="reviewsSlider">
+        <div class="review-card" data-city="Москва">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Спасибо за оперативность! Приехали за 25 минут, хотя обещали 30. Врач вежливый, всё объяснил."</p>
+          <div class="review-author">— Андрей, Москва</div>
+        </div>
+        <div class="review-card" data-city="СПБ">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Очень благодарна за деликатность и профессионализм. Помогли без лишних вопросов."</p>
+          <div class="review-author">— Елена, СПБ</div>
+        </div>
+        <div class="review-card" data-city="Казань">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Доступные цены, качественное обслуживание. Рекомендую!"</p>
+          <div class="review-author">— Игорь, Казань</div>
+        </div>
+        <div class="review-card" data-city="Москва">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Приехали ночью без задержек, жена даже не заметила. Всё анонимно, спасибо!"</p>
+          <div class="review-author">— Максим, Москва</div>
+        </div>
+        <div class="review-card" data-city="СПБ">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Сняли похмелье за час, давление пришло в норму. Прекрасное обслуживание."</p>
+          <div class="review-author">— Ольга, СПБ</div>
+        </div>
+        <div class="review-card" data-city="Казань">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Кодировался на дому, всё прошло спокойно и конфиденциально."</p>
+          <div class="review-author">— Руслан, Казань</div>
+        </div>
+        <div class="review-card" data-city="Москва">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Быстро, аккуратно, без осуждений. Очень помогли."</p>
+          <div class="review-author">— Сергей, Москва</div>
+        </div>
+        <div class="review-card" data-city="СПБ">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Врач объяснил каждую процедуру, стало спокойно. Рекомендую."</p>
+          <div class="review-author">— Дмитрий, СПБ</div>
+        </div>
+        <div class="review-card" data-city="Казань">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Дозвонилась сразу, перезвонили через минуту. Сервис отличный."</p>
+          <div class="review-author">— Алёна, Казань</div>
+        </div>
+        <div class="review-card" data-city="Москва">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Реально спасли, благодарю всю бригаду за поддержку."</p>
+          <div class="review-author">— Павел, Москва</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">🚑<br />Выезд за 30 минут</div>
+        <div class="trust-item">🤫<br />100% анонимно</div>
+        <div class="trust-item">💊<br />Сертифицированные препараты</div>
+        <div class="trust-item">💰<br />Доступные цены</div>
+        <div class="trust-item">👨‍⚕️<br />Врачи с опытом 10+ лет</div>
+        <div class="trust-item">☎️<br />Поддержка 24/7</div>
+      </div>
+      <div class="license">Лицензия Минздрава РФ</div>
+    </div>
+  </section>
+
+  <!-- CTA Form Section -->
+  <section class="cta-form">
+    <div class="container">
+      <h2>Не рискуйте здоровьем!</h2>
+      <p>Оставьте заявку прямо сейчас — врач уже готов выехать.</p>
+      <form id="ctaForm" onsubmit="submitForm(event)">
+        <input type="text" name="name" placeholder="Ваше имя" required />
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\+]?[0-9\s\-()]{11,}" />
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+      <p class="form-note">Анонимно. Ответим в течение 3 минут.</p>
+      <p class="form-success" id="ctaSuccess" aria-live="polite" hidden>Спасибо! Мы свяжемся с вами в течение 3 минут.</p>
+    </div>
+  </section>
+
+  <!-- Contacts Section -->
+  <section class="contacts">
+    <div class="container">
+      <div class="contact-phone"><a href="tel:88000000000">8 (800) 000-00-00</a></div>
+      <div class="contact-messengers">
+        <a href="#" class="messenger-btn">WhatsApp</a>
+        <a href="#" class="messenger-btn">Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025. Политика конфиденциальности | ИНН | Лицензия</p>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <button class="modal-close" aria-label="Закрыть" onclick="closeModal()">&times;</button>
+      <h3>Оставьте заявку</h3>
+      <form onsubmit="submitModal(event)">
+        <input type="text" placeholder="Ваше имя" required />
+        <input type="tel" placeholder="+7 (___) ___-__-__" required pattern="[\+]?[0-9\s\-()]{11,}" />
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+      <p class="form-success" id="modalSuccess" aria-live="polite" hidden>Спасибо! Мы скоро свяжемся с вами.</p>
+    </div>
+  </div>
+
+  <!-- Popup (after 30s) -->
+  <div class="popup" id="popup" aria-hidden="true">
+    <div class="popup-content">
+      <button class="popup-close" aria-label="Закрыть" onclick="closePopup()">&times;</button>
+      <p>Нужна помощь прямо сейчас?<br />Оставьте номер, врач перезвонит за 1 минуту</p>
+      <form onsubmit="submitPopup(event)">
+        <input type="tel" placeholder="+7 (___) ___-__-__" required pattern="[\+]?[0-9\s\-()]{11,}" />
+        <button type="submit" class="btn btn-primary">Перезвоните мне</button>
+      </form>
+      <p class="form-success" id="popupSuccess" aria-live="polite" hidden>Спасибо! Мы скоро свяжемся с вами.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
