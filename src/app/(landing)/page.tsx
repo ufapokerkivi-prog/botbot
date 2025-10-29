@@ -1,18 +1,10 @@
 "use client";
 
-import {
-  useState,
-  useEffect,
-  useMemo,
-  useRef,
-  useCallback,
-  type ComponentPropsWithoutRef,
-} from "react";
-import Image from "next/image";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CountUp from "react-countup";
-import InputMask from "react-input-mask";
+import { IMaskInput } from "react-imask";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useForm, Controller } from "react-hook-form";
@@ -180,9 +172,6 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-const HERO_IMAGE_SRC =
-  "https://images.unsplash.com/photo-1580281658629-73a96f2a9aa5?auto=format&fit=crop&w=1200&q=80";
-
 const DynamicDangerStats = dynamic(() => import("@/components/DangerStats"), {
   ssr: false,
 });
@@ -337,14 +326,7 @@ export default function HomePage() {
         className="relative overflow-hidden px-4 pb-20 pt-24 md:pb-28 md:pt-28 lg:px-8"
       >
         <div className="absolute inset-0 -z-10">
-          <Image
-            src={HERO_IMAGE_SRC}
-            alt="Наркологическая помощь"
-            fill
-            priority
-            className="object-cover opacity-35 blur-sm"
-            sizes="100vw"
-          />
+          <div className="h-full w-full bg-gradient-to-br from-primary/5 via-primary/15 to-primary/5" />
           <div className="absolute inset-0 bg-gradient-to-br from-white via-primary/10 to-white" />
         </div>
         <div className="relative mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:items-center">
@@ -426,15 +408,7 @@ export default function HomePage() {
               aria-hidden
             />
             <div className="relative overflow-hidden rounded-[36px] shadow-2xl">
-              <Image
-                src={HERO_IMAGE_SRC}
-                alt="Нарколог на вызове"
-                width={900}
-                height={1200}
-                priority
-                className="h-full w-full object-cover"
-                sizes="(min-width: 1024px) 480px, 100vw"
-              />
+              <div className="aspect-[3/4] w-full bg-gradient-to-br from-primary/25 via-primary/10 to-primary/5" />
               <div className="absolute inset-0 bg-gradient-to-t from-text/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/85 p-4 shadow-soft backdrop-blur">
                 <p className="font-display text-lg font-semibold text-text">
@@ -697,25 +671,19 @@ export default function HomePage() {
                     name="phone"
                     control={requestForm.control}
                     render={({ field }) => (
-                      <InputMask
-                        mask="+7 (999) 999-99-99"
-                        maskChar=""
-                        value={field.value}
-                        onChange={field.onChange}
+                      <IMaskInput
+                        mask="+7 (000) 000-00-00"
+                        value={field.value ?? ""}
+                        onAccept={(value: string | undefined) => field.onChange(value ?? "")}
                         onBlur={field.onBlur}
-                      >
-                        {(inputProps: ComponentPropsWithoutRef<"input">) => (
-                          <input
-                            {...inputProps}
-                            ref={field.ref}
-                            type="tel"
-                            inputMode="tel"
-                            aria-invalid={Boolean(requestForm.formState.errors.phone)}
-                            placeholder="Телефон"
-                            className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                          />
-                        )}
-                      </InputMask>
+                        inputRef={field.ref}
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        placeholder="Телефон"
+                        className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                        aria-invalid={Boolean(requestForm.formState.errors.phone)}
+                      />
                     )}
                   />
                   {requestForm.formState.errors.phone && (
@@ -912,25 +880,19 @@ export default function HomePage() {
                   name="phone"
                   control={popupForm.control}
                   render={({ field }) => (
-                    <InputMask
-                      mask="+7 (999) 999-99-99"
-                      maskChar=""
-                      value={field.value}
-                      onChange={field.onChange}
+                    <IMaskInput
+                      mask="+7 (000) 000-00-00"
+                      value={field.value ?? ""}
+                      onAccept={(value: string | undefined) => field.onChange(value ?? "")}
                       onBlur={field.onBlur}
-                    >
-                      {(inputProps: ComponentPropsWithoutRef<"input">) => (
-                        <input
-                          {...inputProps}
-                          ref={field.ref}
-                          type="tel"
-                          inputMode="tel"
-                          aria-invalid={Boolean(popupForm.formState.errors.phone)}
-                          placeholder="Телефон"
-                          className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                        />
-                      )}
-                    </InputMask>
+                      inputRef={field.ref}
+                      type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
+                      placeholder="Телефон"
+                      className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      aria-invalid={Boolean(popupForm.formState.errors.phone)}
+                    />
                   )}
                 />
                 {popupForm.formState.errors.phone && (
@@ -1049,25 +1011,19 @@ export default function HomePage() {
                   name="phone"
                   control={modalForm.control}
                   render={({ field }) => (
-                    <InputMask
-                      mask="+7 (999) 999-99-99"
-                      maskChar=""
-                      value={field.value}
-                      onChange={field.onChange}
+                    <IMaskInput
+                      mask="+7 (000) 000-00-00"
+                      value={field.value ?? ""}
+                      onAccept={(value: string | undefined) => field.onChange(value ?? "")}
                       onBlur={field.onBlur}
-                    >
-                      {(inputProps: ComponentPropsWithoutRef<"input">) => (
-                        <input
-                          {...inputProps}
-                          ref={field.ref}
-                          type="tel"
-                          inputMode="tel"
-                          aria-invalid={Boolean(modalForm.formState.errors.phone)}
-                          placeholder="Телефон"
-                          className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                        />
-                      )}
-                    </InputMask>
+                      inputRef={field.ref}
+                      type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
+                      placeholder="Телефон"
+                      className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      aria-invalid={Boolean(modalForm.formState.errors.phone)}
+                    />
                   )}
                 />
                 {modalForm.formState.errors.phone && (
