@@ -16,7 +16,7 @@ const config: Config = {
           600: "#00a69a",
           700: "#008378",
           800: "#006156",
-          900: "#003e34"
+          900: "#003e34",
         },
         surface: "var(--color-surface)",
         elevated: "var(--color-elevated)",
