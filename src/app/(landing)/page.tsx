@@ -10,6 +10,7 @@ import {
   type ComponentPropsWithoutRef,
 } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import InputMask from "react-input-mask";
@@ -166,6 +167,24 @@ const cityFilters = ["Все", "Москва", "СПБ", "Казань"] as cons
 const HERO_IMAGE_SRC =
   "https://images.unsplash.com/photo-1580281658629-73a96f2a9aa5?auto=format&fit=crop&w=900&q=80";
 
+const DynamicDangerStats = dynamic(() => import("@/components/DangerStats"), {
+  ssr: false,
+  loading: () => (
+    <section className="bg-text px-4 py-20 text-white lg:px-8">
+      <div className="mx-auto max-w-4xl text-center text-white/70">Загрузка данных…</div>
+    </section>
+  ),
+});
+
+const DynamicContactMap = dynamic(() => import("@/components/ContactMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex min-h-[360px] items-center justify-center rounded-2xl bg-elevated p-8 text-center shadow-soft">
+      <p className="text-sm text-muted">Загрузка карты…</p>
+    </div>
+  ),
+});
+
 function normalizePhone(value: string) {
   return value.replace(/\D/g, "");
 }
@@ -192,10 +211,7 @@ export default function HomePage() {
   const [modalMessage, setModalMessage] = useState<string | null>(null);
   const [modalError, setModalError] = useState<string | null>(null);
 
-  const [mapVisible, setMapVisible] = useState(false);
-
   const inactivityTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const mapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let rafId: number | null = null;
@@ -240,25 +256,6 @@ export default function HomePage() {
       }
     };
   }, [resetInactivityTimer]);
-
-  useEffect(() => {
-    if (!mapRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setMapVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(mapRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const filteredReviews = useMemo(() => {
     if (cityFilter === "Все") {
@@ -365,8 +362,9 @@ export default function HomePage() {
               ВЫЗОВ НАРКОЛОГА НА ДОМ ЗА 30 МИНУТ — КРУГЛОСУТОЧНО И АНОНИМНО
             </h1>
             <p className="mb-8 max-w-xl text-lg text-text md:text-xl">
-              Вывод из запоя, снятие похмелья и кодирование. Частная скорая помощь 24/7. Мы приедем к вам домой,
-              сохраним полную конфиденциальность и поддержим на всех этапах восстановления.
+              Вывод из запоя, снятие похмелья и кодирование. Частная скорая помощь 24/7. Мы приедем
+              к вам домой, сохраним полную конфиденциальность и поддержим на всех этапах
+              восстановления.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
@@ -406,8 +404,14 @@ export default function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="absolute -left-8 -top-8 h-40 w-40 rounded-full bg-primary/20 blur-3xl" aria-hidden />
-            <div className="absolute -right-6 -bottom-8 h-52 w-52 rounded-full bg-primary/30 blur-3xl" aria-hidden />
+            <div
+              className="absolute -left-8 -top-8 h-40 w-40 rounded-full bg-primary/20 blur-3xl"
+              aria-hidden
+            />
+            <div
+              className="absolute -right-6 -bottom-8 h-52 w-52 rounded-full bg-primary/30 blur-3xl"
+              aria-hidden
+            />
             <div className="relative overflow-hidden rounded-[32px] shadow-2xl">
               <Image
                 src={HERO_IMAGE_SRC}
@@ -418,9 +422,14 @@ export default function HomePage() {
                 className="h-full w-full object-cover"
                 sizes="(min-width: 1024px) 480px, 100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-text/70 via-transparent to-transparent" aria-hidden />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-text/70 via-transparent to-transparent"
+                aria-hidden
+              />
               <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/85 p-4 shadow-soft backdrop-blur">
-                <p className="font-display text-lg font-semibold text-text">Дежурная бригада уже в пути</p>
+                <p className="font-display text-lg font-semibold text-text">
+                  Дежурная бригада уже в пути
+                </p>
                 <p className="text-sm text-muted">Среднее время прибытия: 27 минут</p>
               </div>
             </div>
@@ -433,10 +442,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl rounded-3xl bg-white p-8 shadow-medium md:p-12">
           <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <div>
-              <h2 className="mb-4 font-display text-3xl font-bold text-text md:text-4xl">Срочный вызов врача</h2>
+              <h2 className="mb-4 font-display text-3xl font-bold text-text md:text-4xl">
+                Срочный вызов врача
+              </h2>
               <p className="mb-6 text-lg text-text">
-                Расскажите нам о ситуации — мы подберём подходящего специалиста и подготовим необходимые препараты ещё
-                до выезда.
+                Расскажите нам о ситуации — мы подберём подходящего специалиста и подготовим
+                необходимые препараты ещё до выезда.
               </p>
               <ul className="grid gap-2 text-sm text-muted">
                 {emergencyPoints.map((point) => (
@@ -448,7 +459,9 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
-              <p className="mb-4 font-display text-lg font-semibold text-text">Горячая линия 24/7</p>
+              <p className="mb-4 font-display text-lg font-semibold text-text">
+                Горячая линия 24/7
+              </p>
               <a
                 href="tel:+78000000000"
                 className="mb-6 flex items-center justify-center rounded-lg bg-primary px-6 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg hover:opacity-95"
@@ -491,7 +504,9 @@ export default function HomePage() {
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-primary-100 text-4xl transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:shadow-primary-md">
                   {service.icon}
                 </div>
-                <h3 className="mb-1 font-display text-xl font-semibold text-text">{service.title}</h3>
+                <h3 className="mb-1 font-display text-xl font-semibold text-text">
+                  {service.title}
+                </h3>
                 <p className="mb-4 text-2xl font-bold text-primary">{service.price}</p>
                 <p className="text-sm text-muted">{service.description}</p>
               </motion.div>
@@ -512,7 +527,9 @@ export default function HomePage() {
                     <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-primary-100 text-4xl">
                       {service.icon}
                     </div>
-                    <h3 className="mb-1 font-display text-xl font-semibold text-text">{service.title}</h3>
+                    <h3 className="mb-1 font-display text-xl font-semibold text-text">
+                      {service.title}
+                    </h3>
                     <p className="mb-4 text-2xl font-bold text-primary">{service.price}</p>
                     <p className="text-sm text-muted">{service.description}</p>
                   </div>
@@ -523,32 +540,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Danger of alcohol */}
-      <section className="bg-text px-4 py-20 text-white lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="mb-10"
-          >
-            <div className="mb-4 font-display text-6xl font-bold text-primary md:text-7xl">
-              <CountUp end={200} duration={2.4} suffix="+" />
-            </div>
-            <p className="font-display text-2xl">человек умирает ежедневно</p>
-          </motion.div>
-          <p className="mx-auto max-w-3xl text-lg text-white/85">
-            Каждый день от последствий алкоголя умирает более 200 человек. Зависимость разрушает не только тело, но и
-            жизнь близких. Не ждите, пока станет поздно — вызовите врача и остановите цепочку последствий уже сегодня.
-          </p>
-        </div>
-      </section>
+      <DynamicDangerStats />
 
       {/* How we help */}
       <section id="help" className="relative overflow-hidden px-4 py-20 lg:px-8">
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-primary/20 to-transparent" aria-hidden />
+        <div
+          className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-primary/20 to-transparent"
+          aria-hidden
+        />
         <div className="relative mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center font-display text-3xl font-bold text-text md:text-4xl">Как мы помогаем</h2>
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-text md:text-4xl">
+            Как мы помогаем
+          </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {advantages.map((advantage, index) => (
               <motion.div
@@ -580,9 +583,14 @@ export default function HomePage() {
       {/* Timeline */}
       <section className="bg-surface px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-16 text-center font-display text-3xl font-bold text-text md:text-4xl">Как мы работаем</h2>
+          <h2 className="mb-16 text-center font-display text-3xl font-bold text-text md:text-4xl">
+            Как мы работаем
+          </h2>
           <div className="relative">
-            <div className="absolute left-8 top-0 hidden h-full w-0.5 bg-primary md:block" aria-hidden />
+            <div
+              className="absolute left-8 top-0 hidden h-full w-0.5 bg-primary md:block"
+              aria-hidden
+            />
             <div className="space-y-8">
               {timeline.map((item, index) => (
                 <motion.div
@@ -632,11 +640,15 @@ export default function HomePage() {
           <div className="mt-12 flex flex-col items-center justify-center gap-8 rounded-3xl bg-surface p-10 shadow-soft md:flex-row">
             <div className="text-center">
               <div className="mb-4 text-6xl">📜</div>
-              <h3 className="font-display text-xl font-semibold text-text">Лицензия Минздрава РФ</h3>
+              <h3 className="font-display text-xl font-semibold text-text">
+                Лицензия Минздрава РФ
+              </h3>
               <p className="mt-2 text-sm text-muted">Все врачи проходят ежегодную аттестацию</p>
             </div>
             <div className="text-center">
-              <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-white text-4xl shadow-soft">📱</div>
+              <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-white text-4xl shadow-soft">
+                📱
+              </div>
               <p className="mt-2 text-xs text-muted">Отсканируйте QR-код для проверки лицензий</p>
             </div>
           </div>
@@ -646,7 +658,9 @@ export default function HomePage() {
       {/* Reviews */}
       <section id="reviews" className="bg-surface px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center font-display text-3xl font-bold text-text md:text-4xl">Отзывы пациентов</h2>
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-text md:text-4xl">
+            Отзывы пациентов
+          </h2>
           <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
             {cityFilters.map((filter) => (
               <button
@@ -683,7 +697,9 @@ export default function HomePage() {
                     <div className="mb-2 text-sm font-semibold text-primary">{review.city}</div>
                     <p className="text-sm text-muted">{review.text}</p>
                   </div>
-                  <div className="mt-6 font-display text-base font-semibold text-text">{review.name}</div>
+                  <div className="mt-6 font-display text-base font-semibold text-text">
+                    {review.name}
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -715,7 +731,11 @@ export default function HomePage() {
                   required
                   className="w-full rounded-lg border border-border px-4 py-3 text-text transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary-100"
                 />
-                <InputMask mask="+7 (999) 999-99-99" value={phone} onChange={(event) => setPhone(event.target.value)}>
+                <InputMask
+                  mask="+7 (999) 999-99-99"
+                  value={phone}
+                  onChange={(event) => setPhone(event.target.value)}
+                >
                   {(inputProps: ComponentPropsWithoutRef<"input">) => (
                     <input
                       {...inputProps}
@@ -737,7 +757,9 @@ export default function HomePage() {
                   Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
                 </p>
                 {primaryError && <p className="text-center text-sm text-red-500">{primaryError}</p>}
-                {primaryMessage && <p className="text-center text-sm text-primary">{primaryMessage}</p>}
+                {primaryMessage && (
+                  <p className="text-center text-sm text-primary">{primaryMessage}</p>
+                )}
               </div>
             </form>
           </motion.div>
@@ -754,14 +776,19 @@ export default function HomePage() {
               <div className="text-7xl">🔒</div>
             </div>
           </div>
-          <h2 className="mb-6 font-display text-3xl font-bold text-white md:text-4xl">Гарантия анонимности</h2>
+          <h2 className="mb-6 font-display text-3xl font-bold text-white md:text-4xl">
+            Гарантия анонимности
+          </h2>
           <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 shadow-primary-lg">
             <span className="text-2xl">✓</span>
-            <span className="font-display text-lg font-semibold text-white">Без постановки на учёт</span>
+            <span className="font-display text-lg font-semibold text-white">
+              Без постановки на учёт
+            </span>
           </div>
           <p className="mx-auto max-w-3xl text-lg text-white/80">
-            Мы работаем строго конфиденциально. Данные пациентов защищены, информация о лечении не передаётся на
-            государственные ресурсы и страховые базы. Мы понимаем, насколько важна репутация и спокойствие вашей семьи.
+            Мы работаем строго конфиденциально. Данные пациентов защищены, информация о лечении не
+            передаётся на государственные ресурсы и страховые базы. Мы понимаем, насколько важна
+            репутация и спокойствие вашей семьи.
           </p>
         </div>
       </section>
@@ -769,7 +796,9 @@ export default function HomePage() {
       {/* Contacts */}
       <section id="contacts" className="bg-white px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center font-display text-3xl font-bold text-text md:text-4xl">Контакты</h2>
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-text md:text-4xl">
+            Контакты
+          </h2>
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div className="space-y-8">
               <div>
@@ -816,32 +845,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div
-              ref={mapRef}
-              className="min-h-[360px] overflow-hidden rounded-2xl bg-elevated shadow-soft"
-            >
-              {mapVisible ? (
-                <iframe
-                  title="Карта проезда"
-                  src="https://yandex.ru/map-widget/v1/?ll=37.620070%2C55.753630&z=11&mode=search&text=%D0%BD%D0%B0%D1%80%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C"
-                  loading="lazy"
-                  className="h-full w-full border-0"
-                  allowFullScreen
-                />
-              ) : (
-                <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-8 text-center">
-                  <div className="text-6xl">🗺️</div>
-                  <p className="text-sm text-muted">Карта загрузится автоматически при просмотре блока</p>
-                  <button
-                    type="button"
-                    onClick={() => setMapVisible(true)}
-                    className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white"
-                  >
-                    Загрузить карту
-                  </button>
-                </div>
-              )}
-            </div>
+            <DynamicContactMap />
           </div>
         </div>
       </section>
@@ -864,11 +868,19 @@ export default function HomePage() {
               className="absolute right-4 top-4 text-muted transition-colors hover:text-text"
               aria-label="Закрыть"
             >
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <h3 className="mb-3 font-display text-2xl font-bold text-text">Нужна срочная помощь?</h3>
+            <h3 className="mb-3 font-display text-2xl font-bold text-text">
+              Нужна срочная помощь?
+            </h3>
             <p className="mb-6 text-sm text-muted">
               Оставьте телефон — мы перезвоним и подскажем, какие действия предпринять прямо сейчас.
             </p>
@@ -924,7 +936,13 @@ export default function HomePage() {
             className="absolute right-3 top-3 text-white/80 transition-colors hover:text-white"
             aria-label="Закрыть"
           >
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -932,7 +950,9 @@ export default function HomePage() {
             <div className="text-3xl">🚑</div>
             <div>
               <h4 className="font-display text-lg font-semibold">Бригада готова выехать</h4>
-              <p className="mt-1 text-sm text-white/90">Оставьте заявку — мы перезвоним в течение 3 минут</p>
+              <p className="mt-1 text-sm text-white/90">
+                Оставьте заявку — мы перезвоним в течение 3 минут
+              </p>
               <a
                 href="#request"
                 onClick={() => setShowTimer(false)}
@@ -963,14 +983,22 @@ export default function HomePage() {
               className="absolute right-4 top-4 text-muted transition-colors hover:text-text"
               aria-label="Закрыть"
             >
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <h3 className="mb-4 font-display text-2xl font-bold text-text">Подбор индивидуального лечения</h3>
+            <h3 className="mb-4 font-display text-2xl font-bold text-text">
+              Подбор индивидуального лечения
+            </h3>
             <p className="mb-6 text-sm text-muted">
-              Ответьте на несколько вопросов — мы подготовим персональный план помощи и подскажем, какие меры принять
-              прямо сейчас.
+              Ответьте на несколько вопросов — мы подготовим персональный план помощи и подскажем,
+              какие меры принять прямо сейчас.
             </p>
             <ul className="mb-6 grid gap-2 text-sm text-muted">
               {modalBenefits.map((benefit) => (
