@@ -44,10 +44,10 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <a
-            href="tel:+70000000000"
+            href="tel:+78000000000"
             className="hidden rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-primary transition-all hover:border-primary-200 hover:bg-primary-100 md:block"
           >
-            +7 (000) 000-00-00
+            8 (800) 000-00-00
           </a>
           <button
             type="button"
@@ -121,10 +121,10 @@ export default function Header() {
                   </div>
                   <div className="py-6">
                     <a
-                      href="tel:+70000000000"
+                      href="tel:+78000000000"
                       className="-mx-3 block rounded-xl bg-primary-100 px-4 py-3 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white"
                     >
-                      +7 (000) 000-00-00
+                      8 (800) 000-00-00
                     </a>
                   </div>
                 </div>

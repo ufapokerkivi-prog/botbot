@@ -170,7 +170,8 @@
 
 @layer utilities {
   @keyframes pulse-soft {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
       transform: scale(1);
     }
@@ -181,7 +182,8 @@
   }
 
   @keyframes glow-tiffany {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 20px rgba(0, 200, 179, 0.3);
     }
     50% {
@@ -211,6 +213,25 @@
     }
   }
 
+  @keyframes vibrate {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    20% {
+      transform: translate3d(-1.5px, 0, 0);
+    }
+    40% {
+      transform: translate3d(1.5px, 0, 0);
+    }
+    60% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    80% {
+      transform: translate3d(1px, 0, 0);
+    }
+  }
+
   .animate-pulse-soft {
     animation: pulse-soft 2s ease-in-out infinite;
   }
@@ -227,12 +248,18 @@
     animation: slide-up 0.6s ease-out forwards;
   }
 
+  .animate-vibrate {
+    animation: vibrate 0.35s linear infinite;
+  }
+
   .hover-glow-tiffany {
     transition: all 0.3s ease;
   }
 
   .hover-glow-tiffany:hover {
-    box-shadow: 0 0 25px rgba(0, 200, 179, 0.4), 0px 24px 60px rgba(43, 43, 43, 0.12);
+    box-shadow:
+      0 0 25px rgba(0, 200, 179, 0.4),
+      0px 24px 60px rgba(43, 43, 43, 0.12);
     transform: translateY(-2px);
   }
 
