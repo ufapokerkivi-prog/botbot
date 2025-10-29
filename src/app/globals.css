@@ -2,8 +2,10 @@
 
 :root {
   --color-primary: #00c8b3;
-  --color-surface: #f5f6f8;
-  --color-elevated: #ffffff;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f5f6f8;
+  --color-surface: var(--color-bg-secondary);
+  --color-elevated: var(--color-bg);
   --color-text: #2b2b2b;
   --color-text-muted: #667085;
   --color-border: #d4d6dd;
@@ -164,4 +166,59 @@
   --color-muted: var(--color-text-muted);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+}
+
+@layer utilities {
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes glow-tiffany {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 200, 179, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 200, 179, 0.5);
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-glow-tiffany {
+    animation: glow-tiffany 2s ease-in-out infinite;
+  }
+
+  .hover-glow-tiffany {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow-tiffany:hover {
+    box-shadow: 0 0 25px rgba(0, 200, 179, 0.4), 0px 24px 60px rgba(43, 43, 43, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .shadow-tiffany {
+    box-shadow: 0 18px 36px rgba(0, 200, 179, 0.25);
+  }
+
+  .hover\:shadow-tiffany:hover {
+    box-shadow: 0 24px 60px rgba(0, 200, 179, 0.35);
+  }
+
+  .gradient-tiffany {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(0, 200, 179, 0.1) 100%);
+  }
+
+  .gradient-tiffany-strong {
+    background: linear-gradient(135deg, rgba(0, 200, 179, 0.05) 0%, rgba(0, 200, 179, 0.15) 100%);
+  }
 }

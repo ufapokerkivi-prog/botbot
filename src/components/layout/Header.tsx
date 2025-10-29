@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Услуги", href: "#services" },
+  { label: "Помощь", href: "#help" },
   { label: "Отзывы", href: "#reviews" },
   { label: "Заявка", href: "#request" },
   { label: "Контакты", href: "#contacts" },
@@ -20,7 +21,7 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-sm transition-transform hover:scale-105">
               <span className="font-display text-xl font-bold text-white">Н</span>
             </div>
             <span className="hidden font-display text-lg font-semibold text-text md:inline">
@@ -34,7 +35,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text transition-colors hover:text-primary"
+              className="relative text-sm font-semibold text-text transition-all after:absolute after:-bottom-1 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-primary after:transition-all hover:text-primary hover:after:w-full focus-visible:text-primary focus-visible:after:w-full"
             >
               {link.label}
             </a>
@@ -42,7 +43,10 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="tel:+70000000000" className="hidden text-sm font-semibold text-text md:block">
+          <a
+            href="tel:+70000000000"
+            className="hidden rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-primary transition-all hover:border-primary-200 hover:bg-primary-100 md:block"
+          >
             +7 (000) 000-00-00
           </a>
           <button
@@ -80,7 +84,7 @@ export default function Header() {
             <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-elevated px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
               <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
                     <span className="font-display text-xl font-bold text-white">Н</span>
                   </div>
                 </Link>
@@ -108,7 +112,7 @@ export default function Header() {
                       <a
                         key={link.href}
                         href={link.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-text hover:bg-surface"
+                        className="-mx-3 block rounded-xl px-4 py-3 text-base font-semibold text-text transition-all hover:bg-primary-100 hover:text-primary active:scale-95"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {link.label}
@@ -118,7 +122,7 @@ export default function Header() {
                   <div className="py-6">
                     <a
                       href="tel:+70000000000"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-text hover:bg-surface"
+                      className="-mx-3 block rounded-xl bg-primary-100 px-4 py-3 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white"
                     >
                       +7 (000) 000-00-00
                     </a>
