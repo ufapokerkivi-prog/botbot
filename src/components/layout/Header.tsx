@@ -21,7 +21,7 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-sm transition-transform hover:scale-105">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 shadow-sm transition-transform hover:scale-105">
               <span className="font-display text-xl font-bold text-white">Н</span>
             </div>
             <span className="hidden font-display text-lg font-semibold text-text md:inline">
@@ -84,7 +84,7 @@ export default function Header() {
             <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-elevated px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
               <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
                     <span className="font-display text-xl font-bold text-white">Н</span>
                   </div>
                 </Link>
@@ -122,7 +122,7 @@ export default function Header() {
                   <div className="py-6">
                     <a
                       href="tel:+78000000000"
-                      className="-mx-3 block rounded-xl bg-primary-100 px-4 py-3 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white"
+                      className="-mx-3 block rounded-xl bg-primary-100 px-4 py-3 text-base font-semibold text-primary transition-all hover:bg-primary-600 hover:text-white"
                     >
                       8 (800) 000-00-00
                     </a>

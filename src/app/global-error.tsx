@@ -27,13 +27,13 @@ export default function GlobalError({
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <button
                 onClick={() => reset()}
-                className="rounded-lg bg-teal-500 px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-teal-600"
+                className="rounded-lg bg-primary-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-primary-700"
               >
                 Попробовать снова
               </button>
               <Link
                 href="/"
-                className="inline-flex items-center justify-center rounded-lg border-2 border-teal-500 bg-white px-8 py-4 text-base font-semibold text-teal-500 transition-all hover:bg-teal-500 hover:text-white"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-primary bg-white px-8 py-4 text-base font-semibold text-primary transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white"
               >
                 На главную
               </Link>
@@ -42,7 +42,7 @@ export default function GlobalError({
               <h2 className="mb-4 text-xl font-semibold text-gray-900">Нужна срочная помощь?</h2>
               <a
                 href="tel:+78000000000"
-                className="inline-flex items-center gap-2 text-2xl font-bold text-teal-500 transition-colors hover:text-teal-600"
+                className="inline-flex items-center gap-2 text-2xl font-bold text-primary transition-colors hover:text-primary-700"
               >
                 <span className="text-3xl">🚑</span>8 (800) 000-00-00
               </a>

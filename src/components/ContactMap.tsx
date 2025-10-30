@@ -42,7 +42,7 @@ export default function ContactMap() {
           <button
             type="button"
             onClick={() => setMapVisible(true)}
-            className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white"
+            className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white"
           >
             Загрузить карту
           </button>

@@ -25,13 +25,13 @@ export default function Error({
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <button
             onClick={() => reset()}
-            className="rounded-lg bg-primary px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg hover:opacity-95"
+            className="rounded-lg bg-primary-600 px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg hover:opacity-95"
           >
             Попробовать снова
           </button>
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-lg border-2 border-primary bg-white px-8 py-4 font-display text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white"
+            className="inline-flex items-center justify-center rounded-lg border-2 border-primary bg-white px-8 py-4 font-display text-base font-semibold text-primary transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white"
           >
             На главную
           </Link>

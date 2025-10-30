@@ -14,13 +14,13 @@ export default function NotFound() {
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg hover:opacity-95"
+            className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg hover:opacity-95"
           >
             На главную
           </Link>
           <a
             href="tel:+78000000000"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary bg-white px-8 py-4 font-display text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary bg-white px-8 py-4 font-display text-base font-semibold text-primary transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white"
           >
             <span>🚑</span>
             Позвонить
