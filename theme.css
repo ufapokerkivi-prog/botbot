@@ -1,0 +1,42 @@
+/**
+ * Tiffany WCAG AA Palette
+ *
+ * Backgrounds
+ *   --color-bg: #F7FBFA - very light cool background
+ *   --color-surface: #FFFFFF - cards and elevated surfaces
+ *
+ * Primary (Tiffany/Aquamarine)
+ *   --color-primary: #81D8D0 - base tiffany color
+ *   --color-primary-600: #3FB9B1 - darker shade for buttons and interactive elements
+ *   --color-primary-700: #2F8F8A - darkest shade for links and strong accents
+ *
+ * Text
+ *   --color-text: #152027 - main body text (dark graphite)
+ *   --color-text-muted: #4A5A66 - secondary or muted text
+ *   --color-heading: #0F1B24 - headings and emphasized text
+ *
+ * Accents
+ *   --color-accent-1: #FF6B6B - coral accent for highlights or warnings
+ *   --color-accent-2: #F5C542 - gold accent for highlights and emphasis
+ *
+ * Borders & Links
+ *   --color-border: #E2ECEB - subtle borders and dividers
+ *   --color-link: #2F8F8A - standard link color
+ *   --color-link-hover: #0F6E6A - hover state for links
+ */
+:root {
+  --color-bg: #F7FBFA;
+  --color-surface: #FFFFFF;
+  --color-primary: #81D8D0;
+  --color-primary-600: #3FB9B1;
+  --color-primary-700: #2F8F8A;
+  --color-text: #152027;
+  --color-text-muted: #4A5A66;
+  --color-heading: #0F1B24;
+  --color-accent-1: #FF6B6B;
+  --color-accent-2: #F5C542;
+  --color-border: #E2ECEB;
+  --color-link: #2F8F8A;
+  --color-link-hover: #0F6E6A;
+  --shadow: 0 10px 30px rgba(2, 16, 26, 0.08);
+}

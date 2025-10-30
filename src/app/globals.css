@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #00c8b3;
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f5f6f8;
-  --color-surface: var(--color-bg-secondary);
-  --color-elevated: var(--color-bg);
-  --color-text: #2b2b2b;
-  --color-text-muted: #667085;
-  --color-border: #d4d6dd;
-  --color-overlay: rgba(43, 43, 43, 0.7);
+  --color-primary: #81D8D0;
+  --color-primary-600: #3FB9B1;
+  --color-primary-700: #2F8F8A;
+  --color-bg: #F7FBFA;
+  --color-bg-secondary: #F7FBFA;
+  --color-surface: #FFFFFF;
+  --color-elevated: #FFFFFF;
+  --color-text: #152027;
+  --color-text-muted: #4A5A66;
+  --color-heading: #0F1B24;
+  --color-border: #E2ECEB;
+  --color-overlay: rgba(15, 27, 36, 0.7);
+  --color-link: #2F8F8A;
+  --color-link-hover: #0F6E6A;
+  --color-accent-1: #FF6B6B;
+  --color-accent-2: #F5C542;
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-montserrat);
@@ -86,7 +93,7 @@
   h5,
   h6 {
     font-family: var(--font-display), var(--font-sans), sans-serif;
-    color: var(--color-text);
+    color: var(--color-heading);
     letter-spacing: -0.02em;
     font-weight: 600;
   }
@@ -143,7 +150,7 @@
   }
 
   ::selection {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-600);
     color: #ffffff;
   }
 
@@ -184,10 +191,10 @@
   @keyframes glow-tiffany {
     0%,
     100% {
-      box-shadow: 0 0 20px rgba(0, 200, 179, 0.3);
+      box-shadow: 0 0 20px rgba(63, 185, 177, 0.3);
     }
     50% {
-      box-shadow: 0 0 30px rgba(0, 200, 179, 0.5);
+      box-shadow: 0 0 30px rgba(63, 185, 177, 0.5);
     }
   }
 
@@ -258,24 +265,24 @@
 
   .hover-glow-tiffany:hover {
     box-shadow:
-      0 0 25px rgba(0, 200, 179, 0.4),
-      0px 24px 60px rgba(43, 43, 43, 0.12);
+      0 0 25px rgba(63, 185, 177, 0.4),
+      0px 24px 60px rgba(15, 32, 39, 0.18);
     transform: translateY(-2px);
   }
 
   .shadow-tiffany {
-    box-shadow: 0 18px 36px rgba(0, 200, 179, 0.25);
+    box-shadow: 0 18px 36px rgba(63, 185, 177, 0.25);
   }
 
   .hover\:shadow-tiffany:hover {
-    box-shadow: 0 24px 60px rgba(0, 200, 179, 0.35);
+    box-shadow: 0 24px 60px rgba(63, 185, 177, 0.35);
   }
 
   .gradient-tiffany {
-    background: linear-gradient(135deg, #ffffff 0%, rgba(0, 200, 179, 0.1) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(129, 216, 208, 0.2) 100%);
   }
 
   .gradient-tiffany-strong {
-    background: linear-gradient(135deg, rgba(0, 200, 179, 0.05) 0%, rgba(0, 200, 179, 0.15) 100%);
+    background: linear-gradient(135deg, rgba(129, 216, 208, 0.1) 0%, rgba(63, 185, 177, 0.25) 100%);
   }
 }
