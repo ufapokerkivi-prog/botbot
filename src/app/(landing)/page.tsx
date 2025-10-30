@@ -359,14 +359,14 @@ export default function HomePage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="tel:+78000000000"
-                className="animate-pulse-soft inline-flex min-h-[52px] items-center justify-center rounded-lg bg-primary px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="animate-pulse-soft inline-flex min-h-[52px] items-center justify-center rounded-lg bg-primary-600 px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
                 Вызвать врача сейчас
               </a>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex min-h-[52px] items-center justify-center rounded-lg border-2 border-primary bg-white px-8 py-4 font-display text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white hover:shadow-primary-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-lg border-2 border-primary bg-white px-8 py-4 font-display text-base font-semibold text-primary transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white hover:shadow-primary-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
                 Получить консультацию бесплатно
               </button>
@@ -441,7 +441,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 text-4xl transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 text-4xl transition-all duration-300 group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white">
                   {service.icon}
                 </div>
                 <h3 className="mb-2 font-display text-xl font-semibold text-text">
@@ -517,7 +517,7 @@ export default function HomePage() {
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+              className="inline-flex items-center justify-center rounded-full bg-primary-600 px-8 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             >
               Открыть форму подбора лечения
             </button>
@@ -543,7 +543,7 @@ export default function HomePage() {
                 onClick={() => setCityFilter(filter)}
                 className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
                   cityFilter === filter
-                    ? "border-primary bg-primary text-white shadow-primary-sm"
+                    ? "border-primary-600 bg-primary-600 text-white shadow-primary-sm"
                     : "border-primary/40 bg-white text-primary hover:bg-primary/10"
                 }`}
               >
@@ -694,7 +694,7 @@ export default function HomePage() {
                 </div>
                 <button
                   type="submit"
-                  className="animate-vibrate w-full rounded-lg bg-primary px-6 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                  className="animate-vibrate w-full rounded-lg bg-primary-600 px-6 py-4 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                 >
                   Отправить заявку
                 </button>
@@ -793,7 +793,7 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 }}
                 >
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center self-start rounded-full bg-primary font-display text-2xl font-bold text-white shadow-primary-md">
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center self-start rounded-full bg-primary-600 font-display text-2xl font-bold text-white shadow-primary-md">
                     {item.step}
                   </div>
                   <div className="flex-1 rounded-2xl bg-white p-6 shadow-soft">
@@ -819,7 +819,7 @@ export default function HomePage() {
           <h2 className="mb-6 font-display text-3xl font-bold text-white md:text-4xl">
             Гарантия анонимности
           </h2>
-          <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 shadow-primary-lg">
+          <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-primary-600 px-6 py-3 shadow-primary-lg">
             <span className="text-2xl">✓</span>
             <span className="font-display text-lg font-semibold text-white">
               Без постановки на учёт
@@ -903,7 +903,7 @@ export default function HomePage() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-lg bg-primary px-6 py-3 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="w-full rounded-lg bg-primary-600 px-6 py-3 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
                 Перезвоните мне
               </button>
@@ -917,7 +917,7 @@ export default function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          className="fixed bottom-28 right-4 z-40 w-full max-w-xs rounded-2xl bg-primary p-5 text-white shadow-2xl md:bottom-8"
+          className="fixed bottom-28 right-4 z-40 w-full max-w-xs rounded-2xl bg-primary-600 p-5 text-white shadow-2xl md:bottom-8"
         >
           <button
             type="button"
@@ -1034,11 +1034,11 @@ export default function HomePage() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-lg bg-primary px-6 py-3 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="w-full rounded-lg bg-primary-600 px-6 py-3 font-display text-base font-semibold text-white shadow-primary-md transition-all hover:bg-primary-700 hover:shadow-primary-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
                 Получить план
               </button>
-              {modalMessage && <p className="text-center text-sm text-primary">{modalMessage}</p>}
+
             </form>
           </motion.div>
         </div>
